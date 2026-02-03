@@ -1,144 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Van Allen Bros Lawn Care | Bloomington–Normal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Van Allen Bros | Lawn Care & Snow Removal | Bloomington–Normal IL</title>
+  <meta name="description" content="Van Allen Bros provides professional lawn care and snow removal in Bloomington–Normal, IL. Call/text (309) 431-1434 for a quote." />
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7f6;
-      color: #1f2933;
+    :root{
+      --bg:#0c1512;
+      --panel:#0f211b;
+      --panel2:#102820;
+      --text:#ecfff6;
+      --muted:#b9d7c8;
+      --line:rgba(236,255,246,.12);
+      --accent:#22c55e;
+      --accent2:#60a5fa;
+      --shadow:0 18px 55px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 0%, rgba(34,197,94,.22), transparent 55%),
+        radial-gradient(900px 520px at 85% 10%, rgba(96,165,250,.18), transparent 60%),
+        linear-gradient(180deg, #07110e 0%, #06100d 55%, #050e0b 100%);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:18px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:10px 0 14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+    }
+    .mark{
+      width:44px;height:44px;border-radius:14px;
+      background:linear-gradient(135deg,var(--accent2),var(--accent));
+      box-shadow:0 12px 35px rgba(0,0,0,.4);
+    }
+    .brand b{display:block;font-size:15px;letter-spacing:.2px}
+    .brand span{display:block;font-size:12px;color:var(--muted)}
+    nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{
+      color:var(--muted);
+      padding:8px 10px;border:1px solid transparent;border-radius:999px;
+      background:rgba(236,255,246,.03);
+    }
+    nav a:hover{border-color:var(--line);color:var(--text)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 14px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(236,255,246,.05);
+      font-weight:700;
+      white-space:nowrap;
+      box-shadow:0 10px 25px rgba(0,0,0,.25);
+    }
+    .btn.primary{
+      border:none;
+      background:linear-gradient(135deg, rgba(34,197,94,.95), rgba(96,165,250,.85));
+      color:#04120c;
+    }
+    .btn:hover{filter:brightness(1.04)}
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:14px;
+      margin-top:6px;
+    }
+    .panel{
+      background:linear-gradient(180deg, rgba(236,255,246,.06), rgba(236,255,246,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:38px;
+      line-height:1.1;
+      letter-spacing:.2px;
+    }
+    .sub{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:15px;
+      max-width:65ch;
+    }
+    .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .pillRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .pill{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(236,255,246,.03);
+      color:var(--muted);
+    }
+    .stats{display:grid;gap:10px}
+    .stat{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(236,255,246,.03);
+    }
+    .stat b{display:block;font-size:16px;margin-bottom:2px}
+    .stat span{display:block;color:var(--muted);font-size:12.5px}
+
+    .sectionTitle{
+      display:flex;align-items:end;justify-content:space-between;gap:12px;
+      margin:22px 0 10px;
+      padding:0 2px;
+    }
+    .sectionTitle h2{margin:0;font-size:22px}
+    .sectionTitle p{margin:0;color:var(--muted);font-size:13px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(236,255,246,.05), rgba(236,255,246,.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:0 14px 40px rgba(0,0,0,.35);
+    }
+    .card h3{margin:0 0 8px;font-size:16px}
+    .card p{margin:0 0 10px;color:var(--muted);font-size:13.5px}
+    .card ul{margin:0;padding-left:18px;color:var(--muted)}
+    .card li{margin:6px 0}
+
+    .two{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
     }
 
-    header {
-      background: #1f7a3f;
-      color: white;
-      padding: 24px;
-      text-align: center;
+    .rows{display:grid;gap:10px;margin-top:8px}
+    .row{
+      display:flex;justify-content:space-between;gap:10px;
+      padding:10px 0;border-bottom:1px solid var(--line);
+      color:var(--muted);
+    }
+    .row:last-child{border-bottom:none}
+    .row b{color:var(--text);font-weight:700}
+
+    .callout{
+      background:rgba(34,197,94,.10);
+      border:1px solid rgba(34,197,94,.25);
+      padding:14px;
+      border-radius:16px;
+      color:var(--muted);
+      margin-top:12px;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 30px;
+    form{margin-top:10px}
+    .field{display:grid;gap:6px;margin-bottom:10px}
+    label{font-size:12.5px;color:var(--muted)}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(236,255,246,.03);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    input:focus, textarea:focus, select:focus{border-color:rgba(96,165,250,.55)}
+    .note{color:var(--muted);font-size:12px;margin:8px 0 0}
+
+    .foot{
+      color:var(--muted);
+      font-size:12.5px;
+      padding:18px 0 34px;
+      text-align:center;
     }
 
-    header p {
-      margin: 6px 0 0;
-      font-size: 15px;
-    }
-
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #374151;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 26px;
-      background: #1f7a3f;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-    }
-
-    footer {
-      background: #0f3b20;
-      color: #d1fae5;
-      text-align: center;
-      padding: 14px;
-      font-size: 13px;
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      h1{font-size:32px}
+      .grid{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+      nav{display:none}
     }
   </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <b>Van Allen Bros</b>
+          <span>Lawn Care & Snow Removal • Bloomington–Normal, IL</span>
+        </div>
+      </div>
 
-<header>
-  <h1>Van Allen Bros Lawn Care</h1>
-  <p>Bloomington–Normal, Illinois</p>
-</header>
+      <nav aria-label="Navigation">
+        <a href="#lawn">Lawn Care</a>
+        <a href="#snow">Snow Removal</a>
+        <a href="#process">How It Works</a>
+        <a href="#area">Service Area</a>
+        <a href="#quote">Quote</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-<section>
-  <h2>Reliable Lawn Care You Can Trust</h2>
-  <p>
-    Professional lawn mowing, trimming, edging, and yard cleanups.
-    Trusted by <strong>23+ local properties</strong> for consistent, clean results.
-  </p>
+      <a class="btn primary" href="tel:13094311434">Call/Text (309) 431-1434</a>
+    </header>
 
-  <a class="button" href="tel:13094311434">
-    Call or Text: (309) 431-1434
-  </a>
-</section>
+    <section class="hero">
+      <div class="panel">
+        <h1>Year-round property maintenance that’s actually consistent.</h1>
+        <p class="sub">
+          Professional lawn care during the season and reliable snow removal in winter.
+          Clear communication, clean results, and dependable scheduling.
+        </p>
 
-<section>
-  <h2>Services</h2>
+        <div class="ctaRow">
+          <a class="btn primary" href="#quote">Request a Quote</a>
+          <a class="btn" href="sms:+13094311434?&body=Hi%20Van%20Allen%20Bros%2C%20I%20want%20a%20quote.%20Address%3A%20_____%20Service%3A%20_____%20Details%3A%20_____%20">Text for Quote</a>
+          <a class="btn" href="mailto:vanallenbros@gmail.com">vanallenbros@gmail.com</a>
+        </div>
 
-  <div class="services">
-    <div class="card">
-      <h3>Lawn Mowing</h3>
-      <p>Weekly or bi-weekly mowing with clean lines.</p>
+        <div class="pillRow">
+          <div class="pill">Mowing • Trimming • Edging</div>
+          <div class="pill">Cleanups • Leaf Removal</div>
+          <div class="pill">Driveways • Walkways</div>
+          <div class="pill">Seasonal Scheduling</div>
+        </div>
+      </div>
+
+      <div class="panel stats">
+        <div class="stat">
+          <b>Clear communication</b>
+          <span>Simple scheduling and quick replies by text/call.</span>
+        </div>
+        <div class="stat">
+          <b>Clean finish</b>
+          <span>Neat lines, tight edges, and no mess left behind.</span>
+        </div>
+        <div class="stat">
+          <b>Normal hours</b>
+          <span>Mon–Fri 8:00 AM – 6:00 PM</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="sectionTitle" id="lawn">
+      <h2>Lawn care services</h2>
+      <p>Routine + seasonal maintenance.</p>
     </div>
 
-    <div class="card">
-      <h3>Trimming & Edging</h3>
-      <p>Driveways, sidewalks, and landscaping.</p>
+    <section class="grid">
+      <div class="card">
+        <h3>Mowing</h3>
+        <p>Consistent cuts and reliable scheduling.</p>
+        <ul>
+          <li>Weekly or bi-weekly service</li>
+          <li>Even stripes and clean overlap</li>
+          <li>Bagging available on request</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Trimming & edging</h3>
+        <p>Detail work that makes the yard look finished.</p>
+        <ul>
+          <li>Sidewalks, driveways, patios</li>
+          <li>Fences, trees, landscape beds</li>
+          <li>Sharp edges for clean curb appeal</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Cleanups</h3>
+        <p>Reset your yard when it’s overgrown or messy.</p>
+        <ul>
+          <li>Spring & fall cleanups</li>
+          <li>Leaf removal and hauling</li>
+          <li>Debris pickup and disposal</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="sectionTitle" id="snow">
+      <h2>Snow removal</h2>
+      <p>Keep access safe and clear.</p>
     </div>
 
-    <div class="card">
-      <h3>Yard Cleanups</h3>
-      <p>Spring & fall cleanups and leaf removal.</p>
+    <section class="two">
+      <div class="card">
+        <h3>What we clear</h3>
+        <p>Residential snow clearing focused on safety and access.</p>
+        <ul>
+          <li>Driveways</li>
+          <li>Sidewalks and walkways</li>
+          <li>Entry/porch paths and steps</li>
+          <li>Per-push or storm pricing (ask)</li>
+        </ul>
+        <div class="callout">
+          For the fastest quote, text your address and driveway size (1-car / 2-car / 3-car).
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Timing & expectations</h3>
+        <p>Simple process, clear communication.</p>
+        <ul>
+          <li>We confirm pricing before the first service</li>
+          <li>We set expectations for timing during storms</li>
+          <li>We send a quick update when service is complete</li>
+        </ul>
+        <div class="callout">
+          If you need same-day priority during heavy storms, mention it in your message.
+        </div>
+      </div>
+    </section>
+
+    <div class="sectionTitle" id="process">
+      <h2>How it works</h2>
+      <p>No confusion. Simple steps.</p>
     </div>
 
-    <div class="card">
-      <h3>General Lawn Care</h3>
-      <p>Routine maintenance to keep your yard sharp.</p>
+    <section class="two">
+      <div class="card">
+        <h3>Step 1 — Request a quote</h3>
+        <p>Text is fastest. Include the basics.</p>
+        <ul>
+          <li>Address (city + street)</li>
+          <li>Service needed (lawn or snow)</li>
+          <li>Any details (fence, gate, overgrowth, etc.)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Step 2 — Confirm schedule</h3>
+        <p>We lock in a plan and show up when scheduled.</p>
+        <ul>
+          <li>Recurring route options for lawn care</li>
+          <li>Storm-based scheduling for snow</li>
+          <li>Clear updates if anything changes</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="sectionTitle" id="area">
+      <h2>Service area</h2>
+      <p>Bloomington–Normal + nearby.</p>
+    </div>
+
+    <section class="card">
+      <h3>Primary coverage</h3>
+      <p>We mainly serve Bloomington and Normal. If you’re outside range, we’ll let you know quickly.</p>
+      <div class="rows">
+        <div class="row"><b>Bloomington</b><span>IL</span></div>
+        <div class="row"><b>Normal</b><span>IL</span></div>
+        <div class="row"><b>Nearby towns</b><span>Ask by text/call</span></div>
+      </div>
+    </section>
+
+    <div class="sectionTitle" id="quote">
+      <h2>Request a quote</h2>
+      <p>Text is fastest. Form also works.</p>
+    </div>
+
+    <section class="two">
+      <div class="card">
+        <h3>Quick contact</h3>
+        <div class="rows">
+          <div class="row"><b>Call/Text</b><span>(309) 431-1434</span></div>
+          <div class="row"><b>Email</b><span>vanallenbros@gmail.com</span></div>
+          <div class="row"><b>Hours</b><span>Mon–Fri 8:00 AM – 6:00 PM</span></div>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="tel:13094311434">Call Now</a>
+          <a class="btn" href="sms:+13094311434?&body=Hi%20Van%20Allen%20Bros%2C%20I%20want%20a%20quote.%20Address%3A%20_____%20Service%3A%20_____%20Details%3A%20_____%20">Text Now</a>
+        </div>
+
+        <p class="note">Tip: texting your address + service + details gets the fastest quote.</p>
+      </div>
+
+      <div class="card" id="contact">
+        <h3>Quote form</h3>
+        <p class="note" style="margin-top:0">
+          This form opens your email app (works on GitHub Pages). If you want a real submit form, I can switch you to Google Forms.
+        </p>
+
+        <form action="mailto:vanallenbros@gmail.com" method="post" enctype="text/plain">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="Name" placeholder="Your name" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="Phone" placeholder="(###) ###-####" required />
+          </div>
+
+          <div class="field">
+            <label for="address">Address</label>
+            <input id="address" name="Address" placeholder="Street + City" required />
+          </div>
+
+          <div class="field">
+            <label for="service">Service</label>
+            <select id="service" name="Service" required>
+              <option value="" selected disabled>Select one</option>
+              <option>Lawn mowing</option>
+              <option>Trimming & edging</option>
+              <option>Cleanup / leaf removal</option>
+              <option>Snow removal</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="details">Details</label>
+            <textarea id="details" name="Details" rows="4" placeholder="Example: weekly mowing + edging, or driveway snow clearing after storms" required></textarea>
+          </div>
+
+          <button type="submit" class="btn primary" style="width:100%;border-radius:14px;padding:14px 16px;justify-content:center;">
+            Send quote request
+          </button>
+        </form>
+
+        <p class="note">If nothing happens when you submit, use the Text button above (fastest).</p>
+      </div>
+    </section>
+
+    <div class="foot">
+      © <span id="y"></span> Van Allen Bros • Bloomington–Normal, IL
     </div>
   </div>
-</section>
 
-<section>
-  <h2>Contact</h2>
-  <p><strong>Phone:</strong> (309) 431-1434</p>
-  <p><strong>Hours:</strong> Monday – Friday, 8:00 AM – 6:00 PM</p>
-  <p>Call or text for a fast quote.</p>
-</section>
-
-<footer>
-  © <script>document.write(new Date().getFullYear())</script> Van Allen Bros Lawn Care
-</footer>
-
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
